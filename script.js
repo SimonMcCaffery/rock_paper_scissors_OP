@@ -2,9 +2,18 @@ let playerScore=0;
 let computerScore=0;
 let gameRound = 0;
 let pChoice = "";
+const playerScoreSpan = document.querySelector("#playerScore");
+const computerScoreSpan = document.querySelector("#computerScore");
+
 
 const playerRock = document.querySelector("#Rock");
-playerRock.addEventListener("click", ()=>{pChoice = "rock"})
+playerRock.addEventListener("click", ()=>playRound("rock"))
+
+const playerPaper = document.querySelector("#Paper");
+playerPaper.addEventListener("click", ()=>playRound("paper"))
+
+const playerScissor = document.querySelector("#Scissor");
+playerScissor.addEventListener("click", ()=>playRound("scissor"))
 
 function computerChoice(){
     let num = Math.floor(Math.random() * 3);
@@ -21,67 +30,68 @@ function computerChoice(){
     }
 }
 
-//function playerChoice(){
-//   const playerChoice = prompt("Enter your choice: Rock Paper or Scissor")
-//   return playerChoice.toLowerCase()
-//}
-
 function compareChoice(pChoice, cChoice){
     if(pChoice == "rock"){
         if(cChoice == "scissor"){
             playerScore++;
             gameRound++;
+            roundWinAlert();
         }else if(cChoice== "paper"){
             computerScore++;
             gameRound++;
+            roundLostAlert();            
         }else{
-            return;
+            roundDrawAlert();
         }
     }
     if(pChoice == "paper"){
         if(cChoice == "rock"){
             playerScore++;
             gameRound++;
+            roundWinAlert();
         }else if(cChoice== "scissor"){
             computerScore++;
             gameRound++;
+            roundLostAlert();
         }else{
-            return;
+            roundDrawAlert();
         }
     }
     if(pChoice == "scissor"){
         if(cChoice == "paper"){
             playerScore++;
             gameRound++;
+            roundWinAlert();
         }else if(cChoice== "rock"){
             computerScore++;
             gameRound++;
+            roundLostAlert();
         }else{
-            return;
+            roundDrawAlert();
         }
     }
 }
 
-function playRound(){
-    //playerOption = playerChoice();
-    computerOption = computerChoice();
-    //compareChoice(playerOption, computerOption);
+function playRound(pChoice){    
+    let computerOption = computerChoice();
+    compareChoice(pChoice, computerOption);
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;    
 }
 
-function playGame(){
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+function roundWinAlert(){
+    alert("Round Won!");
+}
+function roundLostAlert(){
+    alert("Round Lost!");
+}
+function roundDrawAlert(){
+    alert("Round Draw!, replaying Round");
 }
 
-playRound();
-
-const playerScoreSpan = document.querySelector("#playerScore");
-const computerScoreSpan = document.querySelector("#computerScore");
 
 playerScoreSpan.textContent = playerScore;
 computerScoreSpan.textContent = computerScore;
 
-console.log(pChoice);
+
+
