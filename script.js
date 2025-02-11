@@ -1,7 +1,6 @@
 let playerScore=0;
 let computerScore=0;
 let gameRound = 0;
-let pChoice = "";
 const playerScoreSpan = document.querySelector("#playerScore");
 const computerScoreSpan = document.querySelector("#computerScore");
 
