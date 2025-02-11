@@ -1,7 +1,10 @@
 let playerScore=0;
 let computerScore=0;
 let gameRound = 0;
+let pChoice = "";
 
+const playerRock = document.querySelector("#Rock");
+playerRock.addEventListener("click", ()=>{pChoice = "rock"})
 
 function computerChoice(){
     let num = Math.floor(Math.random() * 3);
@@ -18,10 +21,10 @@ function computerChoice(){
     }
 }
 
-function playerChoice(){
-   const playerChoice = prompt("Enter your choice: Rock Paper or Scissor")
-   return playerChoice.toLowerCase()
-}
+//function playerChoice(){
+//   const playerChoice = prompt("Enter your choice: Rock Paper or Scissor")
+//   return playerChoice.toLowerCase()
+//}
 
 function compareChoice(pChoice, cChoice){
     if(pChoice == "rock"){
@@ -60,9 +63,9 @@ function compareChoice(pChoice, cChoice){
 }
 
 function playRound(){
-    playerOption = playerChoice();
+    //playerOption = playerChoice();
     computerOption = computerChoice();
-    compareChoice(playerOption, computerOption);
+    //compareChoice(playerOption, computerOption);
 }
 
 function playGame(){
@@ -80,3 +83,5 @@ const computerScoreSpan = document.querySelector("#computerScore");
 
 playerScoreSpan.textContent = playerScore;
 computerScoreSpan.textContent = computerScore;
+
+console.log(pChoice);
