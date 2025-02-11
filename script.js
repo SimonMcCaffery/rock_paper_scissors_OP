@@ -73,7 +73,10 @@ function playGame(){
     playRound();
 }
 
-playGame();
+playRound();
 
-alert("You won " + playerScore + " round lost " + computerScore + " rounds");
+const playerScoreSpan = document.querySelector("#playerScore");
+const computerScoreSpan = document.querySelector("#computerScore");
 
+playerScoreSpan.textContent = playerScore;
+computerScoreSpan.textContent = computerScore;
