@@ -1,0 +1,170 @@
+:root {
+  /*colors*/
+
+  --color-other-text: #533a58;
+  --color-heading-text: #1b195e;
+  --color-body-background: #c2e496;
+  --color-main-background: #5dd39e;
+  --color-accent: #348aa7;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pangolin", serif;
+}
+
+body {
+  background-color: var(--color-body-background);
+  display: grid;
+  place-items: center;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-other-text);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+span {
+  color: var(--color-body-background);
+}
+
+#roundUpdate {
+  text-align: center;
+  white-space: pre-line;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playerChoiceButtons {
+  width: 100%;
+}
+
+button {
+  width: 20%;
+  height: fit-content;
+  margin: 1.25rem;
+  padding: 3rem;
+  border-radius: 1.25rem;
+  background-color: var(--color-other-text);
+  border: 0.3125rem solid var(--color-accent);
+  color: var(--color-body-background);
+  text-align: center;
+  justify-content: center;
+  font-size: 1.875rem;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0.4rem 0.4rem 0.3125rem var(--color-heading-text);
+}
+
+.main {
+  width: 80vw;
+  height: 95vh;
+  background-color: var(--color-main-background);
+  border-radius: 13.125rem;
+  margin: 1.25rem 0;
+  gap: 10rem;
+}
+
+.header {
+  gap: 1rem;
+}
+
+.roundUpdateDiv {
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  button {
+    padding: 1rem;
+    margin: 0.125rem;
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: var(--color-main-background);
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .flex-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main {
+    padding-top: 10rem;
+    width: 100%;
+    height: 200%;
+    background-color: var(--color-main-background);
+    border-radius: 0%;
+    margin: 0rem 0;
+    gap: 5rem;
+  }
+
+  button {
+    width: 50%;
+    height: fit-content;
+    margin: 0.25rem;
+    padding: 1rem;
+    border-radius: 1.25rem;
+    background-color: var(--color-other-text);
+    border: 0.3125rem solid var(--color-accent);
+    color: var(--color-body-background);
+    text-align: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .main {
+    gap: 16px;
+  }
+}

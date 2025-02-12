@@ -3,6 +3,7 @@ let computerScore=0;
 let gameRound = 0;
 const playerScoreSpan = document.querySelector("#playerScore");
 const computerScoreSpan = document.querySelector("#computerScore");
+const roundUpdate = document.querySelector("#roundUpdate");
 
 
 const playerRock = document.querySelector("#Rock");
@@ -34,39 +35,39 @@ function compareChoice(pChoice, cChoice){
         if(cChoice == "scissor"){
             playerScore++;
             gameRound++;
-            roundWinAlert();
+            roundUpdate.textContent = "Round Won!"
         }else if(cChoice== "paper"){
             computerScore++;
             gameRound++;
-            roundLostAlert();            
+            roundUpdate.textContent = "Round Lost!"         
         }else{
-            roundDrawAlert();
+            roundUpdate.textContent = "Round Draw, Replay Round!"
         }
     }
     if(pChoice == "paper"){
         if(cChoice == "rock"){
             playerScore++;
             gameRound++;
-            roundWinAlert();
+            roundUpdate.textContent = "Round Won!"
         }else if(cChoice== "scissor"){
             computerScore++;
             gameRound++;
-            roundLostAlert();
+            roundUpdate.textContent = "Round Lost!"       
         }else{
-            roundDrawAlert();
+            roundUpdate.textContent = "Round Draw, Replay Round!"
         }
     }
     if(pChoice == "scissor"){
         if(cChoice == "paper"){
             playerScore++;
             gameRound++;
-            roundWinAlert();
+            roundUpdate.textContent = "Round Won!"
         }else if(cChoice== "rock"){
             computerScore++;
             gameRound++;
-            roundLostAlert();
+            roundUpdate.textContent = "Round Lost!"       
         }else{
-            roundDrawAlert();
+            roundUpdate.textContent = "Round Draw, Replay Round!"
         }
     }
 }
@@ -76,16 +77,25 @@ function playRound(pChoice){
     compareChoice(pChoice, computerOption);
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;    
+    checkWin();
 }
 
-function roundWinAlert(){
-    alert("Round Won!");
+function checkWin(){
+    if (playerScore >= 5){
+        roundUpdate.textContent = "Congratulations You Won!\nPlay again?";
+        resetGame();
+    }else if(computerScore >= 5){
+        roundUpdate.textContent = "How embarassing Beaten by the computer!\nTry again?"
+        resetGame();
+    }else {
+        return;
+    }
 }
-function roundLostAlert(){
-    alert("Round Lost!");
-}
-function roundDrawAlert(){
-    alert("Round Draw!, replaying Round");
+
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    gameRound = 0;
 }
 
 
